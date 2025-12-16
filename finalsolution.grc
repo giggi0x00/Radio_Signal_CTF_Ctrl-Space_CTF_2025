@@ -1,0 +1,1078 @@
+options:
+  parameters:
+    author: luigif
+    catch_exceptions: 'True'
+    category: '[GRC Hier Blocks]'
+    cmake_opt: ''
+    comment: ''
+    copyright: ''
+    description: ''
+    gen_cmake: 'On'
+    gen_linking: dynamic
+    generate_options: qt_gui
+    hier_block_src_path: '.:'
+    id: attemp3
+    max_nouts: '0'
+    output_language: python
+    placement: (0,0)
+    qt_qss_theme: ''
+    realtime_scheduling: ''
+    run: 'True'
+    run_command: '{python} -u {filename}'
+    run_options: prompt
+    sizing_mode: fixed
+    thread_safe_setters: ''
+    title: Not titled yet
+    window_size: (1000,1000)
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [8, 8]
+    rotation: 0
+    state: enabled
+
+blocks:
+- name: bandpass_filter_width
+  id: variable
+  parameters:
+    comment: ''
+    value: '8000'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1064, 164.0]
+    rotation: 0
+    state: true
+- name: fsk_deviation
+  id: variable
+  parameters:
+    comment: ''
+    value: high-low
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [672, 164.0]
+    rotation: 0
+    state: true
+- name: high
+  id: variable
+  parameters:
+    comment: ''
+    value: '16500'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [824, 164.0]
+    rotation: 0
+    state: true
+- name: low
+  id: variable
+  parameters:
+    comment: ''
+    value: '8000'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [568, 156.0]
+    rotation: 0
+    state: true
+- name: samp_per_sym
+  id: variable
+  parameters:
+    comment: ''
+    value: '1000'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [928, 164.0]
+    rotation: 0
+    state: true
+- name: samp_rate
+  id: variable
+  parameters:
+    comment: ''
+    value: '100000'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [448, 156.0]
+    rotation: 0
+    state: enabled
+- name: analog_quadrature_demod_cf_0
+  id: analog_quadrature_demod_cf
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    gain: samp_rate/(2*math.pi)
+    maxoutbuf: '0'
+    minoutbuf: '0'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [816, 996.0]
+    rotation: 0
+    state: enabled
+- name: blocks_burst_tagger_0
+  id: blocks_burst_tagger
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    false_key: burst
+    false_value: 'False'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    true_key: burst
+    true_value: 'True'
+    type: float
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1304, 1220.0]
+    rotation: 0
+    state: enabled
+- name: blocks_complex_to_mag_0
+  id: blocks_complex_to_mag
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1048, 960.0]
+    rotation: 0
+    state: true
+- name: blocks_delay_0
+  id: blocks_delay
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    delay: '1'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    num_ports: '1'
+    showports: 'False'
+    type: float
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [640, 1388.0]
+    rotation: 0
+    state: disabled
+- name: blocks_file_sink_0
+  id: blocks_file_sink
+  parameters:
+    affinity: ''
+    alias: ''
+    append: 'False'
+    comment: ''
+    file: /tmp/data5.bin
+    type: float
+    unbuffered: 'False'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1328, 1652.0]
+    rotation: 0
+    state: true
+- name: blocks_file_source_0_0
+  id: blocks_file_source
+  parameters:
+    affinity: ''
+    alias: ''
+    begin_tag: pmt.PMT_NIL
+    comment: ''
+    file: /home/luigif/ctf/hammingbird/rf-dump.complex
+    length: '0'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    offset: '0'
+    repeat: 'False'
+    type: complex
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [8, 188.0]
+    rotation: 0
+    state: true
+- name: blocks_float_to_short_0
+  id: blocks_float_to_short
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    scale: '1'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1168, 1084.0]
+    rotation: 0
+    state: true
+- name: blocks_moving_average_xx_0_0
+  id: blocks_moving_average_xx
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    length: '300'
+    max_iter: '4000'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    scale: 1/300
+    type: float
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [928, 1228.0]
+    rotation: 0
+    state: true
+- name: blocks_moving_average_xx_0_0_0
+  id: blocks_moving_average_xx
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    length: '50'
+    max_iter: '4000'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    scale: 1/50
+    type: float
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1496, 1220.0]
+    rotation: 0
+    state: true
+- name: blocks_moving_average_xx_0_1
+  id: blocks_moving_average_xx
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    length: '50'
+    max_iter: '4000'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    scale: 1/50
+    type: float
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [400, 1332.0]
+    rotation: 0
+    state: disabled
+- name: blocks_sub_xx_0_0
+  id: blocks_sub_xx
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    num_inputs: '2'
+    type: float
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [704, 1240.0]
+    rotation: 0
+    state: disabled
+- name: blocks_tagged_file_sink_0
+  id: blocks_tagged_file_sink
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    samp_rate: samp_rate
+    type: float
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1944, 1276.0]
+    rotation: 0
+    state: true
+- name: epy_block_1
+  id: epy_block
+  parameters:
+    _source_code: "\"\"\"\nEmbedded Python Blocks:\n\nEach time this file is saved,\
+      \ GRC will instantiate the first class it finds\nto get ports and parameters\
+      \ of your block. The arguments to __init__ will\nbe the parameters. All of them\
+      \ are required to have default values!\n\"\"\"\n\nimport numpy as np\nfrom gnuradio\
+      \ import gr\nimport pmt\n\n\nclass blk(gr.sync_block):\n    \"\"\"Save + Parse\
+      \ + Process samples between tagged bursts\"\"\"\n\n    def __init__(self, preamble_threshold=0.8):\n\
+      \        gr.sync_block.__init__(\n            self,\n            name='Embedded\
+      \ Python Block',\n            in_sig=[np.float32],\n            out_sig=None\n\
+      \        )\n\n\n\n        # Burst state\n        self.in_burst = False\n   \
+      \     self.current_buf = []\n\n        # Saved bursts (raw and processed)\n\
+      \        self.saved_bursts = []\n        self.processed_bursts = []\n      \
+      \  self.preamblethr=preamble_threshold\n\n        # Tag key name\n        self.tag_key\
+      \ = \"burst\"     # change if needed\n\n\n    # ---------------------------------------\n\
+      \    # USER DEFINES PARSING HERE\n    # ---------------------------------------\n\
+      \    def parse(self, signal):\n\n        window_size = 200\n        num_windows\
+      \ = len(signal) // window_size\n        upsampled_bits = np.zeros(num_windows,\
+      \ dtype=int)\n        t = np.zeros(num_windows, dtype=int)\n\n\n        for\
+      \ i in range(num_windows):\n            start = i * window_size\n          \
+      \  end = start + window_size\n\n            if (signal[start:end] > 0).sum()\
+      \ >= window_size*0.51:\n                upsampled_bits[i] = 0 \n           \
+      \ else:\n                upsampled_bits[i] = 1 \n\n        decoded_bits = upsampled_bits.tolist()\n\
+      \        #bits = \"\".join(map(str, decoded_bits))\n        #bytes_output=bytes(int(bits[i:i+8],\
+      \ 2) for i in range(0, len(bits), 8))\n        print(f\"Preamble -  {decoded_bits[:150]}\"\
+      )\n        return decoded_bits    # example parsing\n\n\n    # ---------------------------------------\n\
+      \    # USER DEFINES PROCESSING HERE\n    # ---------------------------------------\n\
+      \    def process(self, parsed_array):\n        \"\"\"\n        Modify this function\
+      \ for your processing logic.\n        Example: compute the RMS of the burst.\n\
+      \        \"\"\"\n        return np.sqrt(np.mean(parsed_array**2))\n\n    def\
+      \ detect_preamble(self,signal, preamble, threshold=0.8):\n        signal = np.array(signal)\n\
+      \        preamble = np.array(preamble)\n        L = len(preamble)\n\n      \
+      \  matches = []\n        for i in range(len(signal) - L + 1):\n            window\
+      \ = signal[i:i+L]\n            similarity = (window == preamble).mean()\n  \
+      \          if similarity >= threshold:\n                matches.append(i)\n\n\
+      \n        return matches\n\n    def bits2bytes(self,data):\n        bits = \"\
+      \".join(map(str, data))\n        return bytes(int(bits[i:i+8], 2) for i in range(0,\
+      \ len(bits), 8))\n\n    def printbytes(self,data):\n        print(' '.join(f'{b:02x}'\
+      \ for b in data))\n        print(\"--\")\n\n\n    def hamming74_decode_block(self,codeword):\n\
+      \        if len(codeword) != 7:\n            raise ValueError(\"Block must be\
+      \ 7 bits for Hamming(7,4)\")\n\n        c = codeword[:]  # copy\n\n        #\
+      \ Compute syndrome bits\n        s1 = c[0] ^ c[2] ^ c[4] ^ c[6]\n        s2\
+      \ = c[1] ^ c[2] ^ c[5] ^ c[6]\n        s3 = c[3] ^ c[4] ^ c[5] ^ c[6]\n\n  \
+      \      # Convert syndrome bits to error position (1\u20137)\n        error_pos\
+      \ = (s3 << 2) | (s2 << 1) | s1\n\n        if error_pos:\n            c[error_pos\
+      \ - 1] ^= 1\n\n        data_bits = [c[i] for i in (2, 4, 5, 6)]\n        return\
+      \ data_bits, error_pos\n\n\n\n    def hamming74_decode_stream(self,bitstream):\n\
+      \        \"\"\"\n        Decode a bitstream consisting of concatenated Hamming(7,4)\
+      \ blocks.\n        Returns: (decoded_bits, error_positions)\n        \"\"\"\n\
+      \        if len(bitstream) % 7 != 0:\n            raise ValueError(\"Bitstream\
+      \ length must be multiple of 7\")\n\n        decoded_bits = []\n        for\
+      \ i in range(0, len(bitstream), 7):\n            block = bitstream[i:i+7]\n\
+      \            data, err = self.hamming74_decode_block(block)\n            decoded_bits.extend(data)\n\
+      \        return decoded_bits\n\n\n    def work(self, input_items, output_items):\n\
+      \        inp = input_items[0]\n        n = len(inp)\n\n        # Build dictionary\
+      \ of tags at positions\n        tags = self.get_tags_in_window(0, 0, n)\n  \
+      \      tag_positions = {t.offset - self.nitems_read(0): t for t in tags}\n\n\
+      \        for i in range(n):\n\n            # ---------------------------\n \
+      \           # TAG HANDLING\n            # ---------------------------\n    \
+      \        if i in tag_positions:\n                t = tag_positions[i]\n    \
+      \            key = str(t.key)\n                val = pmt.to_python(t.value)\n\
+      \n                # DEBUG PRINT\n                print(\"Tag:\", key, \"Value:\"\
+      , val)\n\n                # START BURST\n                if key == self.tag_key\
+      \ and val == 1:\n                    self.in_burst = True\n                \
+      \    self.current_buf = []\n\n                # END BURST\n                elif\
+      \ key == self.tag_key and val == 0:\n                    self.in_burst = False\n\
+      \n                    # Convert to numpy array\n                    burst =\
+      \ np.array(self.current_buf, dtype=np.float32)\n                    self.saved_bursts.append(burst)\n\
+      \n\n                    self.processed_bursts.append(burst)\n\n            \
+      \        print(\"Captured packet length:\", len(burst))\n                  \
+      \  print(f\"Packets captured{len(self.processed_bursts)}\") \n             \
+      \       decoded_bits = self.parse(burst)\n                    threshold= self.preamblethr\n\
+      \        \n                    for PREAMBLE_SPS in range(5,10):\n          \
+      \              preamble_to_find = ([1]*PREAMBLE_SPS + [0]*PREAMBLE_SPS) * 8\n\
+      \                        indexpkts=self.detect_preamble(decoded_bits,preamble_to_find,\
+      \ threshold)\n\n                        if(len(indexpkts)>1):\n            \
+      \                for i in indexpkts:\n                                FRAME_LEN_BITS\
+      \ = 912\n                                pkt=decoded_bits[i:i+FRAME_LEN_BITS*PREAMBLE_SPS]\n\
+      \                                \n                                newpk = [\n\
+      \                                    1 if sum(pkt[i:i+PREAMBLE_SPS]) >= PREAMBLE_SPS/2\
+      \ else 0\n                                    for i in range(0, len(pkt), PREAMBLE_SPS)\n\
+      \                                ]\n                                #print(f\"\
+      Downsample Pkt len {len(newpk)} {len(newpk)%7}\")\n\n                      \
+      \          if len(newpk) == FRAME_LEN_BITS  :\n                            \
+      \        #print(\" Hamming decode\")\n                                    dehammed=self.hamming74_decode_stream(newpk[16:])\n\
+      \                                    payload=self.bits2bytes(dehammed)\n   \
+      \                                 if b\"SAT\" in payload or b'ham' in payload:\
+      \ \n                                        print(payload)\n               \
+      \             \n\n\n            # ---------------------------\n            #\
+      \ SAVE SAMPLES DURING BURST\n            # ---------------------------\n   \
+      \         if self.in_burst:\n            \tself.current_buf.append(inp[i])\n\
+      \            \t                \n                \n\n        return n\n\n"
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    preamble_threshold: '0.8'
+  states:
+    _io_cache: ('Embedded Python Block', 'blk', [('preamble_threshold', '0.8')], [('0',
+      'float', 1)], [], 'Save + Parse + Process samples between tagged bursts', [])
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1880, 1380.0]
+    rotation: 0
+    state: enabled
+- name: freq_xlating_fir_filter_xxx_1
+  id: freq_xlating_fir_filter_xxx
+  parameters:
+    affinity: ''
+    alias: ''
+    center_freq: '14000'
+    comment: ''
+    decim: '1'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    samp_rate: samp_rate
+    taps: firdes.low_pass(1.0, samp_rate, 2500, 500)
+    type: ccc
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [320, 636.0]
+    rotation: 0
+    state: true
+- name: qtgui_freq_sink_x_0
+  id: qtgui_freq_sink_x
+  parameters:
+    affinity: ''
+    alias: ''
+    alpha1: '1.0'
+    alpha10: '1.0'
+    alpha2: '1.0'
+    alpha3: '1.0'
+    alpha4: '1.0'
+    alpha5: '1.0'
+    alpha6: '1.0'
+    alpha7: '1.0'
+    alpha8: '1.0'
+    alpha9: '1.0'
+    autoscale: 'False'
+    average: '1.0'
+    axislabels: 'True'
+    bw: samp_rate
+    color1: '"blue"'
+    color10: '"dark blue"'
+    color2: '"red"'
+    color3: '"green"'
+    color4: '"black"'
+    color5: '"cyan"'
+    color6: '"magenta"'
+    color7: '"yellow"'
+    color8: '"dark red"'
+    color9: '"dark green"'
+    comment: ''
+    ctrlpanel: 'False'
+    fc: '0'
+    fftsize: '1024'
+    freqhalf: 'True'
+    grid: 'False'
+    gui_hint: ''
+    label: Relative Gain
+    label1: ''
+    label10: ''''''
+    label2: ''''''
+    label3: ''''''
+    label4: ''''''
+    label5: ''''''
+    label6: ''''''
+    label7: ''''''
+    label8: ''''''
+    label9: ''''''
+    legend: 'True'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    name: '"freq"'
+    nconnections: '1'
+    norm_window: 'True'
+    showports: 'False'
+    tr_chan: '0'
+    tr_level: '0.0'
+    tr_mode: qtgui.TRIG_MODE_FREE
+    tr_tag: '""'
+    type: complex
+    units: dB
+    update_time: '0.10'
+    width1: '1'
+    width10: '1'
+    width2: '1'
+    width3: '1'
+    width4: '1'
+    width5: '1'
+    width6: '1'
+    width7: '1'
+    width8: '1'
+    width9: '1'
+    wintype: window.WIN_BLACKMAN_hARRIS
+    ymax: '10'
+    ymin: '-140'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [592, 372.0]
+    rotation: 0
+    state: true
+- name: qtgui_time_sink_x_0_1_0_1
+  id: qtgui_time_sink_x
+  parameters:
+    affinity: ''
+    alias: ''
+    alpha1: '1.0'
+    alpha10: '1.0'
+    alpha2: '1.0'
+    alpha3: '1.0'
+    alpha4: '1.0'
+    alpha5: '1.0'
+    alpha6: '1.0'
+    alpha7: '1.0'
+    alpha8: '1.0'
+    alpha9: '1.0'
+    autoscale: 'True'
+    axislabels: 'True'
+    color1: blue
+    color10: dark blue
+    color2: red
+    color3: green
+    color4: black
+    color5: cyan
+    color6: magenta
+    color7: yellow
+    color8: dark red
+    color9: dark green
+    comment: ''
+    ctrlpanel: 'True'
+    entags: 'True'
+    grid: 'False'
+    gui_hint: ''
+    label1: Signal 1
+    label10: Signal 10
+    label2: Signal 2
+    label3: Signal 3
+    label4: Signal 4
+    label5: Signal 5
+    label6: Signal 6
+    label7: Signal 7
+    label8: Signal 8
+    label9: Signal 9
+    legend: 'True'
+    marker1: '-1'
+    marker10: '-1'
+    marker2: '-1'
+    marker3: '-1'
+    marker4: '-1'
+    marker5: '-1'
+    marker6: '-1'
+    marker7: '-1'
+    marker8: '-1'
+    marker9: '-1'
+    name: '"demod mv"'
+    nconnections: '1'
+    size: '4000000'
+    srate: samp_rate
+    stemplot: 'False'
+    style1: '1'
+    style10: '1'
+    style2: '1'
+    style3: '1'
+    style4: '1'
+    style5: '1'
+    style6: '1'
+    style7: '1'
+    style8: '1'
+    style9: '1'
+    tr_chan: '0'
+    tr_delay: '0'
+    tr_level: '0.0'
+    tr_mode: qtgui.TRIG_MODE_FREE
+    tr_slope: qtgui.TRIG_SLOPE_POS
+    tr_tag: '""'
+    type: float
+    update_time: '0.10'
+    width1: '1'
+    width10: '1'
+    width2: '1'
+    width3: '1'
+    width4: '1'
+    width5: '1'
+    width6: '1'
+    width7: '1'
+    width8: '1'
+    width9: '1'
+    ylabel: Freq
+    ymax: '50000'
+    ymin: '-60000'
+    yunit: '""'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1120, 1628.0]
+    rotation: 0
+    state: enabled
+- name: qtgui_time_sink_x_0_1_0_1_0
+  id: qtgui_time_sink_x
+  parameters:
+    affinity: ''
+    alias: ''
+    alpha1: '1.0'
+    alpha10: '1.0'
+    alpha2: '1.0'
+    alpha3: '1.0'
+    alpha4: '1.0'
+    alpha5: '1.0'
+    alpha6: '1.0'
+    alpha7: '1.0'
+    alpha8: '1.0'
+    alpha9: '1.0'
+    autoscale: 'True'
+    axislabels: 'True'
+    color1: blue
+    color10: dark blue
+    color2: red
+    color3: green
+    color4: black
+    color5: cyan
+    color6: magenta
+    color7: yellow
+    color8: dark red
+    color9: dark green
+    comment: ''
+    ctrlpanel: 'True'
+    entags: 'True'
+    grid: 'False'
+    gui_hint: ''
+    label1: Signal 1
+    label10: Signal 10
+    label2: Signal 2
+    label3: Signal 3
+    label4: Signal 4
+    label5: Signal 5
+    label6: Signal 6
+    label7: Signal 7
+    label8: Signal 8
+    label9: Signal 9
+    legend: 'True'
+    marker1: '-1'
+    marker10: '-1'
+    marker2: '-1'
+    marker3: '-1'
+    marker4: '-1'
+    marker5: '-1'
+    marker6: '-1'
+    marker7: '-1'
+    marker8: '-1'
+    marker9: '-1'
+    name: '"demod"'
+    nconnections: '1'
+    size: '4000000'
+    srate: samp_rate
+    stemplot: 'False'
+    style1: '1'
+    style10: '1'
+    style2: '1'
+    style3: '1'
+    style4: '1'
+    style5: '1'
+    style6: '1'
+    style7: '1'
+    style8: '1'
+    style9: '1'
+    tr_chan: '0'
+    tr_delay: '0'
+    tr_level: '0.0'
+    tr_mode: qtgui.TRIG_MODE_FREE
+    tr_slope: qtgui.TRIG_SLOPE_POS
+    tr_tag: '""'
+    type: float
+    update_time: '0.10'
+    width1: '1'
+    width10: '1'
+    width2: '1'
+    width3: '1'
+    width4: '1'
+    width5: '1'
+    width6: '1'
+    width7: '1'
+    width8: '1'
+    width9: '1'
+    ylabel: Freq
+    ymax: '50000'
+    ymin: '-60000'
+    yunit: '""'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [824, 1380.0]
+    rotation: 0
+    state: enabled
+- name: qtgui_time_sink_x_0_1_0_1_1
+  id: qtgui_time_sink_x
+  parameters:
+    affinity: ''
+    alias: ''
+    alpha1: '1.0'
+    alpha10: '1.0'
+    alpha2: '1.0'
+    alpha3: '1.0'
+    alpha4: '1.0'
+    alpha5: '1.0'
+    alpha6: '1.0'
+    alpha7: '1.0'
+    alpha8: '1.0'
+    alpha9: '1.0'
+    autoscale: 'True'
+    axislabels: 'True'
+    color1: blue
+    color10: dark blue
+    color2: red
+    color3: green
+    color4: black
+    color5: cyan
+    color6: magenta
+    color7: yellow
+    color8: dark red
+    color9: dark green
+    comment: ''
+    ctrlpanel: 'True'
+    entags: 'True'
+    grid: 'False'
+    gui_hint: ''
+    label1: Signal 1
+    label10: Signal 10
+    label2: Signal 2
+    label3: Signal 3
+    label4: Signal 4
+    label5: Signal 5
+    label6: Signal 6
+    label7: Signal 7
+    label8: Signal 8
+    label9: Signal 9
+    legend: 'True'
+    marker1: '-1'
+    marker10: '-1'
+    marker2: '-1'
+    marker3: '-1'
+    marker4: '-1'
+    marker5: '-1'
+    marker6: '-1'
+    marker7: '-1'
+    marker8: '-1'
+    marker9: '-1'
+    name: '"afterth"'
+    nconnections: '1'
+    size: '4000000'
+    srate: samp_rate
+    stemplot: 'False'
+    style1: '1'
+    style10: '1'
+    style2: '1'
+    style3: '1'
+    style4: '1'
+    style5: '1'
+    style6: '1'
+    style7: '1'
+    style8: '1'
+    style9: '1'
+    tr_chan: '0'
+    tr_delay: '0'
+    tr_level: '0.0'
+    tr_mode: qtgui.TRIG_MODE_FREE
+    tr_slope: qtgui.TRIG_SLOPE_POS
+    tr_tag: '""'
+    type: float
+    update_time: '0.10'
+    width1: '1'
+    width10: '1'
+    width2: '1'
+    width3: '1'
+    width4: '1'
+    width5: '1'
+    width6: '1'
+    width7: '1'
+    width8: '1'
+    width9: '1'
+    ylabel: Freq
+    ymax: '50000'
+    ymin: '-60000'
+    yunit: '""'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1872, 1124.0]
+    rotation: 0
+    state: enabled
+- name: qtgui_time_sink_x_0_1_0_1_1_0_0
+  id: qtgui_time_sink_x
+  parameters:
+    affinity: ''
+    alias: ''
+    alpha1: '1.0'
+    alpha10: '1.0'
+    alpha2: '1.0'
+    alpha3: '1.0'
+    alpha4: '1.0'
+    alpha5: '1.0'
+    alpha6: '1.0'
+    alpha7: '1.0'
+    alpha8: '1.0'
+    alpha9: '1.0'
+    autoscale: 'True'
+    axislabels: 'True'
+    color1: blue
+    color10: dark blue
+    color2: red
+    color3: green
+    color4: black
+    color5: cyan
+    color6: magenta
+    color7: yellow
+    color8: dark red
+    color9: dark green
+    comment: ''
+    ctrlpanel: 'True'
+    entags: 'True'
+    grid: 'False'
+    gui_hint: ''
+    label1: Signal 1
+    label10: Signal 10
+    label2: Signal 2
+    label3: Signal 3
+    label4: Signal 4
+    label5: Signal 5
+    label6: Signal 6
+    label7: Signal 7
+    label8: Signal 8
+    label9: Signal 9
+    legend: 'True'
+    marker1: '-1'
+    marker10: '-1'
+    marker2: '-1'
+    marker3: '-1'
+    marker4: '-1'
+    marker5: '-1'
+    marker6: '-1'
+    marker7: '-1'
+    marker8: '-1'
+    marker9: '-1'
+    name: '"noiseclea2"'
+    nconnections: '1'
+    size: '4000000'
+    srate: samp_rate
+    stemplot: 'False'
+    style1: '1'
+    style10: '1'
+    style2: '1'
+    style3: '1'
+    style4: '1'
+    style5: '1'
+    style6: '1'
+    style7: '1'
+    style8: '1'
+    style9: '1'
+    tr_chan: '0'
+    tr_delay: '0'
+    tr_level: '0.0'
+    tr_mode: qtgui.TRIG_MODE_FREE
+    tr_slope: qtgui.TRIG_SLOPE_POS
+    tr_tag: '""'
+    type: complex
+    update_time: '0.10'
+    width1: '1'
+    width10: '1'
+    width2: '1'
+    width3: '1'
+    width4: '1'
+    width5: '1'
+    width6: '1'
+    width7: '1'
+    width8: '1'
+    width9: '1'
+    ylabel: Freq
+    ymax: '50000'
+    ymin: '-60000'
+    yunit: '""'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1496, 644.0]
+    rotation: 0
+    state: disabled
+- name: qtgui_waterfall_sink_x_0
+  id: qtgui_waterfall_sink_x
+  parameters:
+    affinity: ''
+    alias: ''
+    alpha1: '1.0'
+    alpha10: '1.0'
+    alpha2: '1.0'
+    alpha3: '1.0'
+    alpha4: '1.0'
+    alpha5: '1.0'
+    alpha6: '1.0'
+    alpha7: '1.0'
+    alpha8: '1.0'
+    alpha9: '1.0'
+    axislabels: 'True'
+    bw: samp_rate
+    color1: '0'
+    color10: '0'
+    color2: '0'
+    color3: '0'
+    color4: '0'
+    color5: '0'
+    color6: '0'
+    color7: '0'
+    color8: '0'
+    color9: '0'
+    comment: ''
+    fc: '0'
+    fftsize: '1024'
+    freqhalf: 'True'
+    grid: 'False'
+    gui_hint: ''
+    int_max: '10'
+    int_min: '-140'
+    label1: ''
+    label10: ''
+    label2: ''
+    label3: ''
+    label4: ''
+    label5: ''
+    label6: ''
+    label7: ''
+    label8: ''
+    label9: ''
+    legend: 'True'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    name: '"original"'
+    nconnections: '1'
+    showports: 'False'
+    type: complex
+    update_time: '0.10'
+    wintype: window.WIN_BLACKMAN_hARRIS
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [608, 500.0]
+    rotation: 0
+    state: true
+- name: qtgui_waterfall_sink_x_0_0_0
+  id: qtgui_waterfall_sink_x
+  parameters:
+    affinity: ''
+    alias: ''
+    alpha1: '1.0'
+    alpha10: '1.0'
+    alpha2: '1.0'
+    alpha3: '1.0'
+    alpha4: '1.0'
+    alpha5: '1.0'
+    alpha6: '1.0'
+    alpha7: '1.0'
+    alpha8: '1.0'
+    alpha9: '1.0'
+    axislabels: 'True'
+    bw: samp_rate
+    color1: '0'
+    color10: '0'
+    color2: '0'
+    color3: '0'
+    color4: '0'
+    color5: '0'
+    color6: '0'
+    color7: '0'
+    color8: '0'
+    color9: '0'
+    comment: ''
+    fc: '0'
+    fftsize: '1024'
+    freqhalf: 'True'
+    grid: 'False'
+    gui_hint: ''
+    int_max: '10'
+    int_min: '-140'
+    label1: ''
+    label10: ''
+    label2: ''
+    label3: ''
+    label4: ''
+    label5: ''
+    label6: ''
+    label7: ''
+    label8: ''
+    label9: ''
+    legend: 'True'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    name: '""'
+    nconnections: '1'
+    showports: 'False'
+    type: complex
+    update_time: '0.10'
+    wintype: window.WIN_BLACKMAN_hARRIS
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [912, 572.0]
+    rotation: 0
+    state: true
+
+connections:
+- [analog_quadrature_demod_cf_0, '0', blocks_moving_average_xx_0_0, '0']
+- [analog_quadrature_demod_cf_0, '0', blocks_moving_average_xx_0_1, '0']
+- [analog_quadrature_demod_cf_0, '0', qtgui_time_sink_x_0_1_0_1_0, '0']
+- [blocks_burst_tagger_0, '0', blocks_moving_average_xx_0_0_0, '0']
+- [blocks_complex_to_mag_0, '0', blocks_float_to_short_0, '0']
+- [blocks_delay_0, '0', blocks_sub_xx_0_0, '1']
+- [blocks_file_source_0_0, '0', freq_xlating_fir_filter_xxx_1, '0']
+- [blocks_file_source_0_0, '0', qtgui_freq_sink_x_0, '0']
+- [blocks_file_source_0_0, '0', qtgui_waterfall_sink_x_0, '0']
+- [blocks_float_to_short_0, '0', blocks_burst_tagger_0, '1']
+- [blocks_moving_average_xx_0_0, '0', blocks_burst_tagger_0, '0']
+- [blocks_moving_average_xx_0_0, '0', blocks_file_sink_0, '0']
+- [blocks_moving_average_xx_0_0, '0', qtgui_time_sink_x_0_1_0_1, '0']
+- [blocks_moving_average_xx_0_0_0, '0', blocks_tagged_file_sink_0, '0']
+- [blocks_moving_average_xx_0_0_0, '0', epy_block_1, '0']
+- [blocks_moving_average_xx_0_0_0, '0', qtgui_time_sink_x_0_1_0_1_1, '0']
+- [blocks_moving_average_xx_0_1, '0', blocks_delay_0, '0']
+- [blocks_moving_average_xx_0_1, '0', blocks_sub_xx_0_0, '0']
+- [blocks_sub_xx_0_0, '0', blocks_moving_average_xx_0_0, '0']
+- [blocks_sub_xx_0_0, '0', qtgui_time_sink_x_0_1_0_1_0, '0']
+- [freq_xlating_fir_filter_xxx_1, '0', analog_quadrature_demod_cf_0, '0']
+- [freq_xlating_fir_filter_xxx_1, '0', blocks_complex_to_mag_0, '0']
+- [freq_xlating_fir_filter_xxx_1, '0', qtgui_waterfall_sink_x_0_0_0, '0']
+
+metadata:
+  file_format: 1
+  grc_version: 3.10.7.0
